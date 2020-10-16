@@ -1,0 +1,13 @@
+<head>
+</head>
+<body>
+
+    <li>{{.Fall.Term}}</li>
+        {{range .Fall.Courses}}
+    <li>{{.Name}} -- {{.Number}} -- {{.Description}}</li>
+    {{end}}
+    <li>{{.Spring.Term}}</li>
+    {{range .Spring.Courses}}
+    <li>{{.Name}} -- {{.Number}} -- {{.Description}}</li>
+    {{end}}
+</body>
