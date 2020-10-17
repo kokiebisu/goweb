@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>Method: {{.Method}}</p>
+    <p>URL: {{.URL}}</p>
+    <p>Header: {{.Header}}</p>
+    <p>Body: {{.Body}}</p>
+    <p>ContentLength: {{.ContentLength}}</p>
+    <p>Host: {{.Host}}</p>
+    <form method="POST" action="/?name=what">
+        <input name="name" type="text" placeholder="enter">
+        <input type="submit">Submit</input>
+    </form>
+  </body>
+</html>
