@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    {{.}}
+    <!-- The enctype attribute specifies how the form-data should be encoded when submitting it to the server. -->
+    <!-- Note: The enctype attribute can be used only if method="post". -->
+    <form enctype="multipart/form-data" method="post">
+      <!-- No characters are encoded. This value is required when you are using forms that have a file upload control -->
+      <input type="file" name="g" />
+      <input type="submit" />
+    </form>
+  </body>
+</html>
