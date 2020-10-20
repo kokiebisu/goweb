@@ -1,30 +1,26 @@
 package main
 
 import (
-	"fmt"
+	"io"
 	"net/http"
 	"strconv"
 )
 
-
 func main() {
-	http.HandleFunc("/", increment)
-	http.Handle("/favicon.ico", http.NotFoundHandler())
+	http.HandleFunc("/", handle)
 	http.ListenAndServe(":8080", nil)
 }
 
-func increment(w http.ResponseWriter, req *http.Request) {
-	c, err := req.Cookie("count")
-	// returns type of error when the cookie which you looked for doesn't exist
+func handle(w http.ResponseWriter, req *http.Request) {
+	cookie, err := req.Cookie("count")
 	if err == http.ErrNoCookie {
-		c = &http.Cookie{
+		cookie = &http.Cookie{
 			Name: "count",
 			Value: "0",
 		}
 	}
-	count, _ := strconv.Atoi(c.Value)
-	count++
-	c.Value = strconv.Itoa(count)
-	http.SetCookie(w, c)
-	fmt.Fprintln(w, "Your count is ", c.Value)
+	count, _ := strconv.Atoi(cookie.Value)
+	cookie.Value = strconv.Itoa(count + 1)
+	http.SetCookie(w, cookie)
+	io.WriteString(w, cookie.Value)
 }
